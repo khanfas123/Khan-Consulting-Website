@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khan Project Execution Services — Finance, Supply Chain & AI Execution</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect width='44' height='44' rx='9' fill='%23B8863B'/%3E%3Ctext x='22' y='30' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='23' fill='%23131C2E'%3EK%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Independent execution partner for finance transformation, supply chain transformation, and AI implementation. Brought in to deliver, not just advise.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #16332A;
+    --ink-2: #234C3B;
+    --paper: #EDEAE1;
+    --paper-2: #E1DCCF;
+    --brass: #BF9346;
+    --burgundy: #7A2E3A;
+    --navy: #35506B;
+    --line: rgba(19,28,46,0.14);
+    --line-on-dark: rgba(237,234,227,0.16);
+    --ink-70: rgba(19,28,46,0.7);
+    --ink-50: rgba(19,28,46,0.5);
+    --paper-70: rgba(237,234,227,0.72);
+    --paper-50: rgba(237,234,227,0.5);
+    --display: "Fraunces", serif;
+    --body: "IBM Plex Sans", sans-serif;
+    --mono: "IBM Plex Mono", monospace;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  body{
+    font-family: var(--body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  a{ color: inherit; text-decoration: none; }
+  ul{ list-style: none; }
+  img,svg{ display:block; max-width:100%; }
+  section{ padding: 96px 8vw; }
+  h1,h2,h3{ font-family: var(--display); font-weight: 600; letter-spacing: -0.01em; }
+  .eyebrow{
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .wrap{ max-width: 1180px; margin: 0 auto; }
+
+  header.nav{
+    position: sticky; top:0; z-index: 50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 22px 8vw;
+    background: rgba(19,28,46,0.92);
+    backdrop-filter: blur(8px);
+    color: var(--paper);
+    border-bottom: 1px solid var(--line-on-dark);
+  }
+  .brand{
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+  .brand span{ color: var(--brass); }
+  .logomark{ flex: none; display:block; }
+  .logomark rect{ fill: var(--brass); }
+  .logomark text{ font-family: var(--display); fill: var(--ink); }
+  .logomark line{ stroke: var(--ink); }
+  .logomark circle{ fill: var(--ink); }
+  nav.links{ display:flex; gap: 32px; align-items:center; }
+  nav.links a{
+    font-size: 14px;
+    color: var(--paper-70);
+    transition: color .2s ease;
+  }
+  nav.links a:hover{ color: var(--paper); }
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:8px;
+    background: var(--brass);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 12px 20px;
+    border-radius: 2px;
+    transition: transform .18s ease, background .18s ease;
+  }
+  .btn-primary:hover{ transform: translateY(-1px); background:#c99648; }
+  .btn-ghost{
+    display:inline-flex; align-items:center; gap:8px;
+    border: 1px solid var(--line-on-dark);
+    color: var(--paper);
+    font-size: 14px;
+    padding: 12px 20px;
+    border-radius: 2px;
+    transition: border-color .18s ease, background .18s ease;
+  }
+  .btn-ghost:hover{ border-color: var(--paper-50); background: rgba(237,234,227,0.06); }
+
+  .hero{
+    background: radial-gradient(120% 140% at 85% -10%, #274F3C 0%, var(--ink) 55%);
+    color: var(--paper);
+    padding-top: 120px;
+    padding-bottom: 80px;
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 56px;
+    align-items: end;
+  }
+  .hero-copy .eyebrow{ color: var(--brass); margin-bottom: 22px; }
+  .hero h1{
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.04;
+    max-width: 12ch;
+    margin-bottom: 24px;
+  }
+  .hero-sub{
+    font-size: 17px;
+    color: var(--paper-70);
+    max-width: 46ch;
+    margin-bottom: 36px;
+  }
+  .cta-row{ display:flex; gap: 14px; flex-wrap: wrap; }
+
+  .status-panel{
+    border: 1px solid var(--line-on-dark);
+    background: rgba(237,234,227,0.03);
+    border-radius: 3px;
+    padding: 4px;
+  }
+  .status-head{
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--paper-50);
+    padding: 14px 18px 10px;
+  }
+  .status-row{
+    display:flex; align-items:center; justify-content: space-between;
+    padding: 16px 18px;
+    border-top: 1px solid var(--line-on-dark);
+  }
+  .status-row .label{ display:flex; align-items:center; gap: 12px; font-size: 14px; }
+  .dot{
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--burgundy);
+    animation: pulse 2.6s ease-out infinite;
+  }
+  .status-row:nth-child(3) .dot{ background: var(--navy); animation-delay: .3s; }
+  .status-row:nth-child(4) .dot{ background: var(--brass); animation-delay: .6s; }
+  @keyframes pulse{
+    0%{ box-shadow: 0 0 0 0 rgba(184,134,59,0.5); }
+    70%{ box-shadow: 0 0 0 8px rgba(184,134,59,0); }
+    100%{ box-shadow: 0 0 0 0 rgba(184,134,59,0); }
+  }
+  .status-row .tag{
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--paper-50);
+    letter-spacing: 0.08em;
+  }
+
+  .positioning{
+    padding-top: 84px; padding-bottom: 84px;
+    border-bottom: 1px solid var(--line);
+  }
+  .positioning .wrap{ max-width: 880px; }
+  .positioning p.lede{
+    font-family: var(--display);
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1.35;
+    font-weight: 500;
+  }
+  .positioning p.lede em{
+    font-style: normal;
+    color: var(--burgundy);
+    border-bottom: 2px solid var(--burgundy);
+  }
+  .positioning .foot{
+    margin-top: 28px;
+    font-size: 15px;
+    color: var(--ink-70);
+    max-width: 62ch;
+  }
+
+  .services{ border-bottom: 1px solid var(--line); }
+  .section-head{ display:flex; justify-content: space-between; align-items:flex-end; gap: 24px; margin-bottom: 48px; flex-wrap: wrap; }
+  .section-head h2{ font-size: clamp(28px, 3.4vw, 40px); max-width: 14ch; }
+  .section-head .eyebrow{ color: var(--burgundy); margin-bottom: 14px; }
+  .section-note{ font-size: 14px; color: var(--ink-50); max-width: 30ch; }
+
+  .cards{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .card{
+    background: var(--paper);
+    padding: 36px 30px;
+    display:flex; flex-direction:column; gap: 16px;
+    opacity: 0; transform: translateY(16px);
+    transition: opacity .6s ease, transform .6s ease, background .25s ease;
+  }
+  .card.in-view{ opacity:1; transform: translateY(0); }
+  .card:nth-child(2){ transition-delay: .08s; }
+  .card:nth-child(3){ transition-delay: .16s; }
+  .card:hover{ background: var(--paper-2); }
+  .card .idx{ font-family: var(--mono); font-size: 12px; color: var(--ink-50); letter-spacing: 0.1em; }
+  .card h3{ font-size: 21px; font-weight: 600; }
+  .card p{ font-size: 14.5px; color: var(--ink-70); }
+  .card .accent{ width: 28px; height: 3px; background: var(--brass); }
+  .card:nth-child(2) .accent{ background: var(--burgundy); }
+  .card:nth-child(3) .accent{ background: var(--navy); }
+  .card .deliverables{ margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); }
+  .card .deliverables .k{ font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; color: var(--ink-50); text-transform:uppercase; display:block; margin-bottom: 8px; }
+  .card .deliverables ul li{ font-size: 13px; color: var(--ink-70); padding: 3px 0; }
+  .card .deliverables ul li::before{ content: "—  "; color: var(--ink-50); }
+
+  .approach{ border-bottom: 1px solid var(--line); }
+  .rail{
+    position: relative;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 20px;
+  }
+  .rail-line{
+    position:absolute; top: 11px; left: 0; right:0; height: 1px;
+    background: var(--line);
+  }
+  .rail-line-fill{
+    position:absolute; top:0; left:0; height:1px; width:0%;
+    background: var(--brass);
+    transition: width 1.1s cubic-bezier(.4,.8,.2,1);
+  }
+  .rail.in-view .rail-line-fill{ width: 100%; }
+  .node{ position:relative; padding-top: 40px; opacity:0; transform: translateY(10px); transition: opacity .5s ease, transform .5s ease; }
+  .rail.in-view .node{ opacity:1; transform: translateY(0); }
+  .node:nth-child(2){ transition-delay: .15s; }
+  .node:nth-child(3){ transition-delay: .3s; }
+  .node:nth-child(4){ transition-delay: .45s; }
+  .node::before{
+    content:""; position:absolute; top:4px; left:0;
+    width: 15px; height:15px; border-radius:50%;
+    background: var(--paper); border: 2px solid var(--brass);
+  }
+  .node .num{ font-family: var(--mono); font-size: 11px; color: var(--brass); letter-spacing: 0.1em; display:block; margin-bottom: 10px; }
+  .node h3{ font-size: 18px; margin-bottom: 10px; }
+  .node p{ font-size: 13.5px; color: var(--ink-70); }
+
+  .fit{ border-bottom: 1px solid var(--line); }
+  .fit-grid{ display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; }
+  .fit-list li{
+    display:flex; gap: 16px; padding: 18px 0; border-top: 1px solid var(--line); font-size: 15px;
+  }
+  .fit-list li:last-child{ border-bottom: 1px solid var(--line); }
+  .fit-list li .m{ font-family: var(--mono); font-size: 12px; color: var(--ink-50); padding-top: 2px; white-space:nowrap; }
+  .models{ display:flex; flex-direction:column; gap: 14px; }
+  .model{
+    border: 1px solid var(--line); padding: 20px 22px; border-radius: 2px; background: var(--paper-2);
+  }
+  .model .eyebrow{ color: var(--ink-50); margin-bottom: 8px; }
+  .model h4{ font-family: var(--display); font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+  .model p{ font-size: 13.5px; color: var(--ink-70); }
+
+  .about{ border-bottom: 1px solid var(--line); }
+  .about-grid{ display:grid; grid-template-columns: 0.55fr 1fr; gap: 56px; align-items: start; }
+  .about-mark{
+    aspect-ratio: 1/1.15; background: var(--ink); border-radius: 3px;
+    display:flex; align-items:flex-end; padding: 24px; color: var(--paper);
+  }
+  .about-mark span{ font-family: var(--mono); font-size: 12px; color: var(--paper-50); letter-spacing: 0.08em; }
+  .about-body p{ font-size: 16px; color: var(--ink-70); margin-bottom: 18px; max-width: 62ch; }
+  .about-body p:first-child{ font-family: var(--display); font-size: 22px; color: var(--ink); font-weight: 500; line-height: 1.4; }
+  .stat-row{ display:flex; gap: 40px; margin-top: 32px; flex-wrap: wrap; }
+  .stat b{ display:block; font-family: var(--display); font-size: 30px; }
+  .stat span{ font-family: var(--mono); font-size: 11px; color: var(--ink-50); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  .contact{
+    background: var(--ink); color: var(--paper);
+    text-align:center;
+  }
+  .contact .eyebrow{ color: var(--brass); justify-content:center; display:flex; margin-bottom: 20px; }
+  .contact h2{ font-size: clamp(30px, 4.5vw, 48px); max-width: 16ch; margin: 0 auto 20px; }
+  .contact p{ color: var(--paper-70); max-width: 50ch; margin: 0 auto 36px; font-size: 16px; }
+  .contact .btn-primary{ padding: 16px 28px; font-size: 15px; }
+
+  footer{
+    padding: 32px 8vw; display:flex; justify-content: space-between; align-items:center;
+    background: var(--ink); color: var(--paper-50); font-size: 13px;
+    border-top: 1px solid var(--line-on-dark);
+  }
+  footer a{ color: var(--paper-70); }
+
+  @media (max-width: 860px){
+    section{ padding: 64px 6vw; }
+    .hero{ grid-template-columns: 1fr; padding-top: 100px; }
+    .cards{ grid-template-columns: 1fr; }
+    .rail{ grid-template-columns: 1fr; gap: 28px; }
+    .rail-line, .rail-line-fill{ top:0; bottom:0; left:11px; right:auto; width:1px; height:100%; }
+    .rail.in-view .rail-line-fill{ width:1px; height:100%; }
+    .node{ padding-top:0; padding-left: 40px; }
+    .node::before{ top:2px; left:0; }
+    .fit-grid{ grid-template-columns: 1fr; }
+    .about-grid{ grid-template-columns: 1fr; }
+    .about-mark{ aspect-ratio: 16/9; }
+    nav.links{ display:none; }
+    footer{ flex-direction:column; gap:12px; text-align:center; }
+  }
+
+  @media (max-width: 480px){
+    .brand{ font-size: 13.5px; }
+    header.nav{ padding: 18px 6vw; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="#top">
+    <svg class="logomark" width="34" height="34" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Khan Project Execution Services logomark">
+      <rect x="1" y="1" width="42" height="42" rx="9"></rect>
+      <text x="22" y="29" text-anchor="middle" font-weight="700" font-size="21">K</text>
+      <line x1="10" y1="34.5" x2="34" y2="34.5" stroke-width="1.4" stroke-opacity="0.4"></line>
+      <circle cx="34" cy="34.5" r="1.6"></circle>
+    </svg>
+    Khan Project Execution <span>Services</span>
+  </a>
+  <nav class="links">
+    <a href="#services">Services</a>
+    <a href="#approach">Approach</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a class="btn-primary" href="#contact">Book an intro call</a>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <p class="eyebrow">Independent execution partner</p>
+    <h1>Transformation that ships.</h1>
+    <p class="hero-sub">I take finance, supply chain, and AI programs from approved plan to running system — the part most advisory work stops short of. No bench, no hand-offs, one operator end to end.</p>
+    <div class="cta-row">
+      <a class="btn-primary" href="#contact">Book an intro call</a>
+      <a class="btn-ghost" href="#approach">See how engagements run</a>
+    </div>
+  </div>
+  <div class="status-panel">
+    <p class="status-head">Practice areas</p>
+    <div class="status-row"><span class="label"><span class="dot"></span>Finance transformation</span><span class="tag">ACTIVE</span></div>
+    <div class="status-row"><span class="label"><span class="dot"></span>Supply chain transformation</span><span class="tag">ACTIVE</span></div>
+    <div class="status-row"><span class="label"><span class="dot"></span>AI implementation</span><span class="tag">ACTIVE</span></div>
+  </div>
+</section>
+
+<section class="positioning">
+  <div class="wrap">
+    <p class="lede">Most consulting engagements end at the recommendation. I get brought in for what happens <em>after</em> the deck — the configuration, the cutover, the change management, the three months where a plan either becomes a working system or quietly stalls.</p>
+    <p class="foot">Solo by design. Every engagement gets direct delivery from someone who's run the build before, not a rotating team learning on your budget.</p>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Services</p>
+        <h2>Three domains. One operator.</h2>
+      </div>
+      <p class="section-note">Engagements run standalone or combined, wherever the transformation actually touches.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="idx">DOMAIN 01</span>
+        <div class="accent"></div>
+        <h3>Finance Transformation</h3>
+        <p>ERP and finance-system migrations, close-process redesign, FP&amp;A operating model, controls and governance rebuilds.</p>
+        <div class="deliverables">
+          <span class="k">Typical outputs</span>
+          <ul>
+            <li>Process maps &amp; RACI</li>
+            <li>Cutover &amp; hypercare plan</li>
+            <li>Controls framework</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <span class="idx">DOMAIN 02</span>
+        <div class="accent"></div>
+        <h3>Supply Chain Transformation</h3>
+        <p>S&amp;OP redesign, network and inventory optimization, planning-system rollouts, supplier onboarding and control towers.</p>
+        <div class="deliverables">
+          <span class="k">Typical outputs</span>
+          <ul>
+            <li>Operating playbooks</li>
+            <li>KPI tree &amp; control tower</li>
+            <li>Planning cadence design</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <span class="idx">DOMAIN 03</span>
+        <div class="accent"></div>
+        <h3>AI Implementation</h3>
+        <p>Use-case selection, pilot-to-production delivery, workflow integration into existing systems, adoption and governance.</p>
+        <div class="deliverables">
+          <span class="k">Typical outputs</span>
+          <ul>
+            <li>Pilot scorecards</li>
+            <li>Integration runbooks</li>
+            <li>Adoption tracking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="approach" id="approach">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Approach</p>
+        <h2>How engagements run</h2>
+      </div>
+      <p class="section-note">Same four phases regardless of domain — what changes is the system underneath.</p>
+    </div>
+    <div class="rail">
+      <div class="rail-line"></div>
+      <div class="rail-line-fill"></div>
+      <div class="node">
+        <span class="num">PHASE 01</span>
+        <h3>Diagnose</h3>
+        <p>Map the current state, find the real constraint, size the opportunity in numbers finance will accept.</p>
+      </div>
+      <div class="node">
+        <span class="num">PHASE 02</span>
+        <h3>Design</h3>
+        <p>Target operating model and sequencing, built as a plan that survives contact with budget approval.</p>
+      </div>
+      <div class="node">
+        <span class="num">PHASE 03</span>
+        <h3>Deploy</h3>
+        <p>Hands-on delivery: configuration, testing, cutover, training — the work most firms subcontract out.</p>
+      </div>
+      <div class="node">
+        <span class="num">PHASE 04</span>
+        <h3>Sustain</h3>
+        <p>Hypercare, KPI tracking, and a clean handoff to the team that runs it day to day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fit">
+  <div class="wrap fit-grid">
+    <div>
+      <p class="eyebrow" style="color:var(--ink-50); margin-bottom:14px;">Fit</p>
+      <h2 style="font-size:clamp(26px,3vw,34px); margin-bottom:28px;">Where I typically get called in</h2>
+      <ul class="fit-list">
+        <li><span class="m">→</span><span>Right after a strategy engagement ends, to carry the plan into execution.</span></li>
+        <li><span class="m">→</span><span>A program that's stalled and needs a restart with a single accountable lead.</span></li>
+        <li><span class="m">→</span><span>Post-merger integration of finance or supply chain systems and teams.</span></li>
+        <li><span class="m">→</span><span>Interim delivery leadership while a permanent hire is made.</span></li>
+      </ul>
+    </div>
+    <div class="models">
+      <div class="model">
+        <p class="eyebrow">Engagement model</p>
+        <h4>Fixed-scope project</h4>
+        <p>A defined deliverable, timeline, and price — for a discrete migration, redesign, or rollout.</p>
+      </div>
+      <div class="model">
+        <p class="eyebrow">Engagement model</p>
+        <h4>Fractional / retained</h4>
+        <p>Ongoing delivery capacity, a set number of days a month, for ongoing transformation work.</p>
+      </div>
+      <div class="model">
+        <p class="eyebrow">Engagement model</p>
+        <h4>Interim leadership</h4>
+        <p>Full-time coverage of a program or transformation-lead role for a fixed period.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap about-grid">
+    <div class="about-mark">
+      <div>
+        <span style="display:block; font-family:var(--display); font-size:20px; color:var(--paper); margin-bottom:8px;">Fauzia Khan</span>
+        <span>PRACTICE LEAD — FINANCE / SUPPLY CHAIN / AI</span>
+      </div>
+    </div>
+    <div class="about-body">
+      <p>Twenty years leading finance transformation programs inside the organizations that ran them — not just advising from outside.</p>
+      <p>I'm currently leading ERP transformation for Universal Music Group's merchandise business as Product Owner, translating finance, reporting, and operations requirements into a working system. Before that, I spent five years as a practice leader at Reveal Group and Invoke Consulting, advising Fortune 500 CXOs on ERP strategy, automation, and transformation roadmaps while managing 20+ enterprise accounts. Earlier, I built the finance transformation function at Sony Pictures Entertainment — consolidating regional finance centers into a unified shared-services model across 15 countries and leading a global SAP S/4HANA rollout across 2,000+ finance professionals — and established the Enterprise PMO at Warner Bros., governing a $100M+ portfolio of strategic programs.</p>
+      <p style="font-size:14px; color:var(--ink-50);">AI &amp; Business Strategy, MIT · Program Management, Caltech · PMP · Certified Scrum Master · Master in Finance &amp; Control, Aligarh University</p>
+      <div class="stat-row">
+        <div class="stat"><b>20+</b><span>Years in finance transformation</span></div>
+        <div class="stat"><b>$100M+</b><span>Portfolio governed at Warner Bros.</span></div>
+        <div class="stat"><b>15</b><span>Countries consolidated at Sony Pictures</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Have a program that needs an execution partner?</h2>
+    <p>Send a short note on where things stand — current state, target state, and timeline — and I'll follow up to set up a call.</p>
+    <a class="btn-primary" href="mailto:hello@khanpes.com">hello@khanpes.com</a>
+  </div>
+</section>
+
+<footer>
+  <span style="display:flex; align-items:center; gap:10px;">
+    <svg class="logomark" width="22" height="22" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Khan Project Execution Services logomark">
+      <rect x="1" y="1" width="42" height="42" rx="9"></rect>
+      <text x="22" y="29" text-anchor="middle" font-weight="700" font-size="21">K</text>
+      <line x1="10" y1="34.5" x2="34" y2="34.5" stroke-width="1.4" stroke-opacity="0.4"></line>
+      <circle cx="34" cy="34.5" r="1.6"></circle>
+    </svg>
+    © 2026 Khan Project Execution Services. Independent consulting practice.
+  </span>
+  <span><a href="#top">Back to top</a></span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.card, .rail').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
